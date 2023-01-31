@@ -304,7 +304,7 @@
     <section id='iris'>
       <h3>IRIs</h3>
       <p>An IRI is used to represent an identifiable entity &mdash; such as a person, place, or thing.
-        Until now, we have been writing absolute <dfn data-lt="absolute iri|iri">IRIs</dfn> [[RFC3987]] (e.g.,
+        Until now, we have been writing absolute <dfn data-lt="absolute iri|iri">IRIs</dfn> (<a href="https://www.rfc-editor.org/rfc/rfc3987">RFC3987</a>) (e.g.,
         <code>http://example.org/#Spiderman</code>), which include both the namespace (e.g.,
         <code>http://example.org/#</code>) and the local name (e.g., <code>Spiderman</code>).
       </p>
@@ -474,14 +474,15 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
         the delimiter quotes (e.g., <code>2001-08-10</code>).</p>
 
       <p>The language of the string literal can be indicated using the <code>@</code> symbol and the corresponding
-        language tag (as defined in [[BCP47]] &mdash; find the registry in [[LNG-TAG]]). For instance:</p>
+        language tag (as defined in <a href="https://www.rfc-editor.org/rfc/rfc5646">BCP47</a> &mdash; 
+        find the registry in <a href="http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry">LNG-TAG</a>). For instance:</p>
       <textarea class="n3code">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://example.org/#> .
 
 :spiderman foaf:name "Spiderman"@en ,
   "Hombre Araña"@es , "Homme Araignée"@fr .</textarea>
-      <p>The reading direction can be described together with the language [[BCP47]], using the <code>i18n</code>
-        namespace:</p>
+      <p>The reading direction can be described together with the language <a href="https://www.rfc-editor.org/rfc/rfc5646">BCP47</a>, 
+        using the <code>i18n</code> namespace:</p>
       <textarea class="n3code">@prefix i18n: <https://www.w3.org/ns/i18n#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://example.org/#> .
@@ -565,7 +566,7 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
       <p>Instead, you can use <dfn>blank nodes</dfn> to talk about resources.
         They are existential variables; that is, they state the existence of a thing without identifying it.
         <a>Blank nodes</a> can be represented in several ways, as described below.
-        For details, please refer to ([[[RDF11-CONCEPTS]]]).
+        For details, please refer to <a href="https://www.w3.org/TR/rdf11-concepts/">RDF11-CONCEPTS</a>.
       </p>
       <section id='bnodeids'>
         <h3>Blank node identifiers</h3>
@@ -1276,7 +1277,7 @@ _:d a :Person.</textarea>
         of information, or the probability of a diagnosis. But, in essence, this is the same problem as representing
         n-ary relations.</p>
       <p>There are several ways of representing n-ary relations in RDF &mdash; these are described in
-        [[[swbp-n-aryRelations]]].</p>
+        <a href="https://www.w3.org/TR/swbp-n-aryRelations/">swbp-n-aryRelations</a>.</p>
       <p>Below, we illustrate options for representing n-ary relations in N3 in particular.</p>
       <section id="nary-binary-rel">
         <h3>Using sets of binary relations</h3>
