@@ -112,6 +112,7 @@ h1 {
 h2 {
     border-bottom: 1px solid lightgrey;
     font-family: "Linux Libertine", "Georgia", "Times", serif;
+    margin-top: 50px;
 }
 
 h3 {
