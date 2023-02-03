@@ -912,7 +912,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
 :race :finalists ( :flash :superman :spiderman ) .
           
-{ :race "finalists ?finalists .
+{ :race :finalists ?finalists .
   ?finalists list:iterate ( ?i ?finalist ) .
   ( ?i ". " ?finalist "<br />" ) string:concatenation ?entry
 

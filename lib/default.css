@@ -157,3 +157,20 @@ dfn {
 code {
     font-size: 13px;
 }
+
+.note::before {
+    content: "NOTE. ";
+    /* display: block; */
+    /* font-size: 16px; */
+    font-weight: bold;
+}
+
+.note {
+    border: 1px solid grey;
+    padding: 10px;
+    background-color: #fdfcfc;
+}
+
+.note , .note p {
+    font-size: 14px;
+}
