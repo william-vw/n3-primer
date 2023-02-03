@@ -1,0 +1,158 @@
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+table.grammar,
+table.grammar th,
+table.grammar td {
+    border: none;
+    padding: 2px;
+    vertical-align: top;
+}
+
+table.grammar td:nth-child(2) {
+    text-align: right;
+}
+
+table.ex,
+.ex th,
+.ex td {
+    border: none;
+    padding: 0;
+}
+
+.ex th {
+    text-align: center;
+}
+
+.n3code,
+.ex {
+    width: 90%;
+}
+
+.self-link {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#abstract {
+    padding-bottom: 25px;
+}
+
+div.menu {
+    float: left;
+    position: -webkit-sticky;
+    /* Safari */
+    position: sticky;
+    top: 0;
+    font-size: 14px;
+    font-family: sans-serif;
+    line-height: 18px;
+    margin-left: 15px;
+    background-position: 30px 0;
+    background-repeat: no-repeat;
+    background-image: url(../logo.png);
+    background-size: 50%;
+    padding-top: 100px;
+}
+
+.menu ol {
+    padding-left: 0;
+}
+
+.menu>ol {
+    margin-left: 20px;
+}
+
+.menu li {
+    padding-top: 10px;
+}
+
+.menu ol {
+    padding-bottom: 10px;
+}
+
+.menu>ol>li {
+    font-size: 20px;
+}
+
+.menu>ol>li>ol>li {
+    font-size: 16px;
+}
+
+body {
+    overflow: visible;
+}
+
+body>section {
+    margin-left: 250px;
+}
+
+a,
+a:visited {
+    color: #0060df;
+}
+
+p,
+ul {
+    font-size: 15px;
+    font-family: Verdana, sans-serif;
+    line-height: 22px;
+}
+
+h1 {
+    border-bottom: 1px solid grey;
+    font-family: "Times", serif;
+}
+
+h2 {
+    border-bottom: 1px solid lightgrey;
+    font-family: "Linux Libertine", "Georgia", "Times", serif;
+}
+
+h3 {
+    margin-top: 40px;
+}
+
+h3,
+h4 {
+    border-bottom: 1px solid #E8E8E8;
+    font-family: "Linux Libertine", "Georgia", "Times", serif;
+}
+
+div.CodeMirror {
+    width: 70%;
+}
+
+.button_container {
+    width: 70%;
+    text-align: right;
+    margin-bottom: 25px;
+}
+
+table .CodeMirror,
+table .button_container {
+    width: 100%;
+}
+
+.open_editor {
+    font-size: 14px;
+}
+
+dfn {
+    font-style: italic;
+    /* font-weight: bold; */
+    text-decoration: underline;
+}
+
+.dfn_link {
+    text-decoration: none;
+}
+
+code {
+    font-size: 13px;
+}

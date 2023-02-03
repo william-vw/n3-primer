@@ -6,166 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Notation3: A Practical Introduction</title>
-  <style>
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-      padding: 5px;
-    }
-
-    table.grammar,
-    table.grammar th,
-    table.grammar td {
-      border: none;
-      padding: 2px;
-      vertical-align: top;
-    }
-
-    table.grammar td:nth-child(2) {
-      text-align: right;
-    }
-
-    table.ex,
-    .ex th,
-    .ex td {
-      border: none;
-      padding: 0;
-    }
-
-    .ex th {
-      text-align: center;
-    }
-
-    .n3code,
-    .ex {
-      width: 90%;
-    }
-
-    .self-link {
-      text-transform: uppercase;
-      font-size: 14px;
-    }
-
-    #abstract {
-      padding-bottom: 25px;
-    }
-
-    div.menu {
-      float: left;
-      position: -webkit-sticky;
-      /* Safari */
-      position: sticky;
-      top: 0;
-      font-size: 14px;
-      font-family: sans-serif;
-      line-height: 18px;
-      margin-left: 15px;
-      background-position: 30px 0;
-      background-repeat: no-repeat;
-      background-image: url(logo.png);
-      background-size: 50%;
-      padding-top: 100px;
-    }
-
-    .menu ol {
-      padding-left: 0;
-    }
-
-    .menu>ol {
-      margin-left: 20px;
-    }
-
-    .menu li {
-      padding-top: 10px;
-    }
-
-    .menu ol {
-      padding-bottom: 10px;
-    }
-
-    .menu>ol>li {
-      font-size: 20px;
-    }
-
-    .menu>ol>li>ol>li {
-      font-size: 16px;
-    }
-
-    body {
-      overflow: visible;
-    }
-
-    body>section {
-      margin-left: 250px;
-    }
-
-    a,
-    a:visited {
-      color: #0060df;
-    }
-
-    p,
-    ul {
-      font-size: 15px;
-      font-family: Verdana, sans-serif;
-      line-height: 22px;
-    }
-
-    h1 {
-      border-bottom: 1px solid grey;
-      font-family: "Times", serif;
-    }
-
-    h2 {
-      border-bottom: 1px solid lightgrey;
-      font-family: "Linux Libertine", "Georgia", "Times", serif;
-    }
-
-    h3 {
-      margin-top: 40px;
-    }
-
-    h3,
-    h4 {
-      border-bottom: 1px solid #E8E8E8;
-      font-family: "Linux Libertine", "Georgia", "Times", serif;
-    }
-
-    div.CodeMirror {
-      width: 70%;
-    }
-
-    .button_container {
-      width: 70%;
-      text-align: right;
-      margin-bottom: 25px;
-    }
-
-    table .CodeMirror,
-    table .button_container {
-      width: 100%;
-    }
-
-    .open_editor {
-      font-size: 14px;
-    }
-
-    dfn {
-      font-style: italic;
-      /* font-weight: bold; */
-      text-decoration: underline;
-    }
-
-    .dfn_link {
-      text-decoration: none;
-    }
-
-    code {
-      font-size: 13px;
-    }
-  </style>
+  
+  <link rel="stylesheet" href="lib/default.css" />
 
   <script src="lib/jquery-3.5.1.min.js"></script>
   <script src="lib/shortcut.js"></script>
@@ -198,6 +40,8 @@
   <h1>Notation3: A Practical Introduction</h1>
 
   <p id='abstract'>
+    N3 is
+
     This practical introduction is meant to get people started with Notation 3 (also known as N3),
     an assertion and logic language that is a superset of RDF.
     It introduces the various language constructs, design patterns,
@@ -237,6 +81,58 @@
       </li>
     </ol>
   </div>
+
+  <section id="n3_editors">
+    <h3>N3 Editors</h3>
+    <p>These N3 editors support one or more of the reasoners listed in the <a href="n3_reasoners">reasoner
+        section</a>.</p>
+    <ul>
+      <li>Online N3-editor: <a href="https://editor.notation3.org">https://editor.notation3.org</a><br />
+        (GitHub repo: <a
+          href="https://github.com/william-vw/n3-editor-js">https://github.com/william-vw/n3-editor-js</a>).
+
+      </li>
+      <li>VSCode N3 extension with language, execution, and debugging support: <br />
+        <a
+          href="https://marketplace.visualstudio.com/items?itemName=w3cn3.n3-lang-exec">https://marketplace.visualstudio.com/items?itemName=w3cn3.n3-lang-exec</a><br />
+        (GitHub repo: <a
+          href="https://github.com/william-vw/vscode-extension-n3">https://github.com/william-vw/vscode-extension-n3</a>).
+      </li>
+    </ul>
+    </p>
+  </section>
+  <section id="n3_reasoners">
+    <h3>N3 Reasoners</h3>
+    <ul>
+      <li><b>Prolog / Command Line</b> - EYE: <a
+          href="https://github.com/eyereasoner/eye">https://github.com/eyereasoner/eye</a> (advanced N3
+        reasoner, used in industrial settings)</li>
+      <li><b>Java</b> - jen3: <a href="https://github.com/william-vw/jen3">https://github.com/william-vw/jen3</a> (<a
+          href="https://jena.apache.org/">Apache Jena</a> extended with N3
+        reasoning)</li>
+      <li><b>Python</b> - Cwm: <a
+          href="https://www.w3.org/2000/10/swap/doc/cwm.html">https://www.w3.org/2000/10/swap/doc/cwm.html</a>
+        ("prototype" N3 reasoner developed by TBL; no longer
+        maintained)</li>
+      <li><b>Rust</b> - roxi: <a href="https://github.com/pbonte/roxi">https://github.com/pbonte/roxi</a> (N3 reasoner
+        in rust)
+      </li>
+      <li>Data-Fu: <a href="https://aifb.kit.edu/web/Linked_Data-Fu">https://aifb.kit.edu/web/Linked_Data-Fu</a>
+        (reasoner and language supporting a subset of N3)</li>
+    </ul>
+  </section>
+  <section id="educational">
+    <h3>Educational Resources</h3>
+    <ul>
+      <li><a href="https://drive.google.com/file/d/18m8m-gqaOdPe1YLg7KdgKrMAesero-pn/view">Notation3 Logic: A
+          Practical Introduction</a>. By Doerthe Arndt.
+      </li>
+      <li>
+        <a href="https://n3.restdesc.org/">Semantic Web Reasoning With N3.</a> By Ruben Verborgh.
+      </li>
+    </ul>
+
+  </section>
 
   <section id='language'>
     <h2>Language</h2>
@@ -1441,55 +1337,6 @@ _:x :certainty 0.8 .</textarea>
       we refer to the <a href="https://github.com/w3c/N3/tree/master/relatedWork#projects-and-materials">W3C CG
         documentation</a>.
     </p>
-    <section id="n3_editors">
-      <h3>N3 Editors</h3>
-      <p>These N3 editors support one or more of the reasoners listed in the <a href="n3_reasoners">reasoner
-          section</a>.</p>
-      <ul>
-        <li>Online N3-editor: <a href="https://editor.notation3.org">https://editor.notation3.org</a><br />
-          (GitHub repo: <a
-            href="https://github.com/william-vw/n3-editor-js">https://github.com/william-vw/n3-editor-js</a>).
-
-        </li>
-        <li>VSCode N3 extension with language, execution, and debugging support: <br />
-          <a
-            href="https://marketplace.visualstudio.com/items?itemName=w3cn3.n3-lang-exec">https://marketplace.visualstudio.com/items?itemName=w3cn3.n3-lang-exec</a><br />
-          (GitHub repo: <a
-            href="https://github.com/william-vw/vscode-extension-n3">https://github.com/william-vw/vscode-extension-n3</a>).
-        </li>
-      </ul>
-      </p>
-    </section>
-    <section id="n3_reasoners">
-      <h3>N3 Reasoners</h3>
-      <ul>
-        <li>EYE: <a href="https://github.com/eyereasoner/eye">https://github.com/eyereasoner/eye</a> (advanced N3
-          reasoner, used in
-          industrial settings)</li>
-        <li>jen3: <a href="https://github.com/william-vw/jen3">https://github.com/william-vw/jen3</a> (<a
-            href="https://jena.apache.org/">Apache Jena</a> extended with N3
-          reasoning)</li>
-        <li>roxi: <a href="https://github.com/pbonte/roxi">https://github.com/pbonte/roxi</a> (N3 reasoner in rust)
-        </li>
-        <li>Data-Fu: <a href="https://aifb.kit.edu/web/Linked_Data-Fu">https://aifb.kit.edu/web/Linked_Data-Fu</a>
-          (reasoner and language supporting a subset of N3)</li>
-        <li>Cwm: <a href="https://www.w3.org/2000/10/swap/doc/cwm.html">https://www.w3.org/2000/10/swap/doc/cwm.html</a>
-          ("prototype" N3 reasoner developed by TBL; no longer
-          maintained)</li>
-      </ul>
-    </section>
-    <section id="educational">
-      <h3>Educational Resources</h3>
-      <ul>
-        <li><a href="https://drive.google.com/file/d/18m8m-gqaOdPe1YLg7KdgKrMAesero-pn/view">Notation3 Logic: A
-            Practical Introduction</a>. By Doerthe Arndt.
-        </li>
-        <li>
-          <a href="https://n3.restdesc.org/">Semantic Web Reasoning With N3.</a> By Ruben Verborgh.
-        </li>
-      </ul>
-
-    </section>
   </section>
 </body>
 
