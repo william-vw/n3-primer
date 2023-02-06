@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-  <meta charset='utf-8'>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Notation3: A Practical Introduction</title>
 
-  <link rel="stylesheet" href="lib/default.css" />
+  <link rel="stylesheet" href="lib/default.css">
 
   <script src="lib/jquery-3.5.1.min.js"></script>
   <script src="lib/shortcut.js"></script>
@@ -117,7 +117,6 @@
           (<a href="https://github.com/william-vw/vscode-extension-n3">GitHub</a>).
         </li>
       </ul>
-      </p>
     </section>
     <section id="n3_reasoners">
       <h3>N3 Reasoners</h3>
@@ -381,8 +380,8 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
       <p>Other literals, such as strings, but also dates, binary, octal or hex code, XML or JSON code, or other types
         of
         numbers (e.g., shorts), need to be written as <b>string literals</b>. If the literal is not a string, its
-        particular datatype must be indicated using the <code>^^</code> symbol and the corresponding <dfn
-          href="https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes">datatype IRI</dfn>. For instance:</p>
+        particular datatype must be indicated using the <code>^^</code> symbol and the corresponding 
+        <a href="https://www.w3.org/TR/xmlschema11-2/#built-in-datatypes"><dfn>datatype IRI</dfn></a>. For instance:</p>
 
       <textarea class="n3code">@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix : <http://example.org/#> .
@@ -570,8 +569,7 @@ _:a ex:street "Evergreen Terrace" .
 _:a ex:number 742 .
 _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <p>We can still use the blank node property list syntax for describing the town,
-          as this blank node still only occurs once as object.</p>
-        </p>
+          as this blank node still only occurs once as object.</p>       
       </section>
 
       <section id="bnode-use-cases">
@@ -627,12 +625,12 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         does not "distribute" across the <a>members</a>.
         For that matter, it is also not implied that the first <a>member</a> put the most effort into the book.
         Any additional meaning, such as each member being an author of the book,
-        and the ordering reflecting the authors' effort, would always be application-specific.<br />
-        <br />
+        and the ordering reflecting the authors' effort, would always be application-specific.<br>
+        <br>
         In general, to implement such application-specific meanings, N3 rules could be used.
         Alternatively, one could use an <a href="#object-lists-example">object list</a>
-        to explicitly state that each of these resources are authors of the book: <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<code>:description_logic_handbook :author :deborah, :daniele, :peter .</code><br />
+        to explicitly state that each of these resources are authors of the book: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<code>:description_logic_handbook :author :deborah, :daniele, :peter .</code><br>
         However, since RDF (and thus N3) statements do not have an inherent order, this example loses meaning
         as we no longer know who can be considered the "first" author.
       </p>
@@ -826,7 +824,6 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           As with general coding practices, it is typically a good idea to give variables a
           meaningful name.
         </p>
-        </p>
 
         <p>
           <!-- TODO have a section on N3 reasoners -->
@@ -854,7 +851,6 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
 { ?flyer :locomotion :flying . ?street :traffic :heavy } 
   =>  { ?street :suitable-observer ?flyer } .</textarea>
-        </p>
 
         <p>
           In a nutshell, forward reasoning presents a bottom-up approach:
@@ -919,7 +915,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           
 { :race :finalists ?finalists .
   ?finalists list:iterate ( ?i ?finalist ) .
-  ( ?i ". " ?finalist "<br />" ) string:concatenation ?entry
+  ( ?i ". " ?finalist "<br>" ) string:concatenation ?entry
 
 } => { :race :entries ?entry } .</textarea>
 
@@ -930,34 +926,34 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         (<code>?i</code> and <code>?finalist</code>, respectively).
         Hence, the <code>list:iterate</code> builtin generates multiple sets of bindings for the <code>?i</code> and
         <code>?finalist</code>
-        variables:<br />
+        variables:<br>
 
-        <code>( ?i = 1, ?finalist = :flash )</code><br />
-        <code>( ?i = 2, ?finalist = :superman )</code><br />
-        <code>( ?i = 3, ?finalist = :spiderman )</code><br />
-        <br />
+        <code>( ?i = 1, ?finalist = :flash )</code><br>
+        <code>( ?i = 2, ?finalist = :superman )</code><br>
+        <code>( ?i = 3, ?finalist = :spiderman )</code><br>
+        <br>
 
         For each set of bindings, the <code>string:concatenation</code> builtin concatenates the resources in the
         subject
         collection,
-        and binds the result to the object variable (<code>?entry</code>). This will lead to the following output:<br />
+        and binds the result to the object variable (<code>?entry</code>). This will lead to the following output:<br>
         <code>
-            1. flash<br />
-            2. superman<br />
-            3. spiderman<br />
-          </code>
+            1. flash<br>
+            2. superman<br>
+            3. spiderman<br>
+        </code>
       </p>
 
       <p class="note">
         A <a>builtin statement</a> can be seen as a <a href="https://www.w3.org/TR/sparql11-query/#QSynTriples">triple
           pattern</a> that, for each builtin result,
-        yields one or more "matching" triples depending on the builtin. For the example above:<br />
+        yields one or more "matching" triples depending on the builtin. For the example above:<br>
         <code>
-            ( :flash :superman :spiderman ) list:iterate ( 1 :flash ) .<br />
-            ( :flash :superman :spiderman ) list:iterate ( 2 :superman ) .<br />
-            ( :flash :superman :spiderman ) list:iterate ( 3 :spiderman ) .<br />
+            ( :flash :superman :spiderman ) list:iterate ( 1 :flash ) .<br>
+            ( :flash :superman :spiderman ) list:iterate ( 2 :superman ) .<br>
+            ( :flash :superman :spiderman ) list:iterate ( 3 :spiderman ) .<br>
           </code>
-        <br />
+        <br>
         As with a <a href="https://www.w3.org/TR/sparql11-query/#QSynTriples">SPARQL</a> query, for each "matching
         triple",
         a join is attempted with the remaining triples in the rule <a>premise</a>.
@@ -995,16 +991,16 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
 } => { ?hero :defeatedEnemies ?enemies } .</textarea>
       <p>
-        The <code>log:collectAllIn</code> builtin accepts as subject a collection that includes:
+        The <code>log:collectAllIn</code> builtin accepts as subject a collection that includes:</p>
       <ul>
         <li>a variable of which the values will be collected (<code>?enemy</code>),</li>
         <li>a <i>where</i> clause with triple patterns that constrain this variable, and</li>
         <li>a variable bound to the resulting collection of values (<code>?enemies</code>).</li>
       </ul>
-      The <i>where</i> clause is evaluated on the given scope, in this case, the current <a>N3 document</a>;
+      <p>The <i>where</i> clause is evaluated on the given scope, in this case, the current <a>N3 document</a>;
       all potential results beyond this scope are considered false (SNAF).
-      This leads to the following result:<br />
-      &nbsp;&nbsp;&nbsp;&nbsp;<code>:spiderman :defeatedEnemies ( :green-goblin :doctor-octopus )</code><br />
+      This leads to the following result:<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;<code>:spiderman :defeatedEnemies ( :green-goblin :doctor-octopus )</code><br>
       </p>
       <p>
         The example below uses <code>log:forAllIn</code> to determine whether a super-hero's identity is safe:</p>
@@ -1123,7 +1119,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         The <code>log:conclusion</code> builtin allows generating the closure of a given <a>quoted graph</a>,
         i.e., extending the graph with all applicable rule inferences.
         This includes <a>quoted graphs</a> retrieved and parsed from online sources. For example:</p>
-      <textarea class="n3code" id="content_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code" id="content_example_2">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com/> .
 
 {  <https://raw.githubusercontent.com/w3c/N3/master/tests/N3Tests/rules.n3> log:semantics ?g .
@@ -1197,11 +1193,11 @@ _:d a :Person.</textarea>
         In contrast, an N3 <a>resource path</a> is most often used in the subject or
         object position.
         Using a <a>resource path</a> in the predicate position, although technically allowed, is often a mistake.
-        For instance, the following N3 <a>resource path</a>: <br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<code>:joe :hasAddress!:hasCity "Metropolis" .</code><br />
-        Would lead to the following expansion:<br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<code>:joe _:bn_1 "Metropolis" .</code><br />
-        &nbsp;&nbsp;&nbsp;&nbsp;<code>:hasAddress :hasCity _:bn_1 .</code><br />
+        For instance, the following N3 <a>resource path</a>: <br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<code>:joe :hasAddress!:hasCity "Metropolis" .</code><br>
+        Would lead to the following expansion:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<code>:joe _:bn_1 "Metropolis" .</code><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;<code>:hasAddress :hasCity _:bn_1 .</code><br>
         Which is likely not the intention of the author.
       </p>
 
