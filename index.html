@@ -1100,7 +1100,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <a>quoted
           graph</a>:
       </p>
-      <textarea class="n3code" id="content_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code" id="semantics-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com> .
 
 { 	
@@ -1119,7 +1119,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         The <code>log:conclusion</code> builtin allows generating the closure of a given <a>quoted graph</a>,
         i.e., extending the graph with all applicable rule inferences.
         This includes <a>quoted graphs</a> retrieved and parsed from online sources. For example:</p>
-      <textarea class="n3code" id="content_example_2">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code" id="concl-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com/> .
 
 {  <https://raw.githubusercontent.com/w3c/N3/master/tests/N3Tests/rules.n3> log:semantics ?g .
