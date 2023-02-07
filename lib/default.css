@@ -181,11 +181,17 @@ code {
     padding: 10px;
     background-color: #F9F9F9;
     width: 90%;
+    margin-top: 10px;
 }
 
-.note , .note p {
+.note , .note p , .note ul {
     font-size: 16px;
     line-height: 1.5rem;
+    font-family: Helvetica, sans-serif;
+}
+
+.note ul {
+    margin-top: 0;
 }
 
 

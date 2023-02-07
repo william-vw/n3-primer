@@ -193,11 +193,11 @@
         In general, one uses an <a>IRI</a> to identify an identifiable entity such as a person, place, or thing &mdash;
         a literal is used for a textual or numerical (i.e., datatype) value, such as name, date, height, and so on.</p>
 
-      <p class="note">There is no inherent order for N3 or RDF triples. The same is true for the relational database
+      <div class="note">There is no inherent order for N3 or RDF triples. The same is true for the relational database
         model, i.e., relational tuples or rows do not have an inherent order. Hence, it is a mistake to associate
         meaning with the order of statements in an N3 document (e.g., assuming that a first listed telephone for
-        Spiderman is their landline, and the second one their mobile number).</p>
-      <!-- <p class="note">Examples will often be written using newlines and tab spaces for readability. However, generally, only the subjects, predicates and objects need to be separated with a whitespace.</p> -->
+        Spiderman is their landline, and the second one their mobile number).</div>
+      <!-- <div class="note">Examples will often be written using newlines and tab spaces for readability. However, generally, only the subjects, predicates and objects need to be separated with a whitespace.</div> -->
       <!-- <pre class="example nohighlight">&lt;http://example.org/#dt&gt; &lt;http://xmlns.com/foaf/0.1/name&gt; &quot;Dominik Tomaszuk&quot; .</pre> -->
     </section>
     <section id='polists'>
@@ -242,11 +242,11 @@ ex:spiderman ex:enemyOf ex:green-goblin ;
     foaf:name "Spiderman" .
 ex:green-goblin foaf:name "Green Goblin" .</textarea>
 
-      <p class="note">N3 also supports
+      <div class="note">N3 also supports
         case-insensitive <code>PREFIX</code> and <code>BASE</code> directives, as does Turtle,
         to align the syntax with SPARQL (see <a href="https://w3c.github.io/N3/spec/#grammar">grammar</a>).
         These do not have a trailing '.'.
-      </p>
+      </div>
 
       <p>To further simplify prefixed names, one can leave the <a>prefix label</a> empty (e.g., for an often-used
         namespace):</p>
@@ -265,7 +265,7 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
 
 <#spiderman> <#enemyOf> <#green-goblin> .</textarea>
 
-      <p class="note">We recommend listing <code>@prefix</code> / <code>PREFIX</code> and <code>@base</code> /
+      <div class="note">We recommend listing <code>@prefix</code> / <code>PREFIX</code> and <code>@base</code> /
         <code>BASE</code> declarations
         at the top of an <a>N3 document</a>.
         This is not mandatory, however,
@@ -274,12 +274,11 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
         that relies on the declaration.
         Subsequent <code>@prefix</code> / <code>PREFIX</code> directives may "re-map"
         the same <a>prefix label</a> to another <a>namespace IRI</a>.
-      </p>
+      </div>
 
       <div class="note">
-        <p>Prefixed names are a superset of <a href="https://www.w3.org/2001/tag/doc/qnameids.html">XML QNames</a>.
-          They differ in that the local name may include:</p>
-
+        Prefixed names are a superset of <a href="https://www.w3.org/2001/tag/doc/qnameids.html">XML QNames</a>.
+          They differ in that the local name may include:
         <ul>
           <li>leading digits, e.g. <code>leg:3032571</code> or <code>isbn13:9780136019701</code></li>
           <li>non leading colons, e.g. <code>og:video:height</code></li>
@@ -355,7 +354,7 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
           One can use <a href="#object-lists-example">objects lists</a> in this syntax as well.
         </p>
 
-        <p class="note">See also the <a href="#bnodeprplist">blank node property list</a> syntax.</p>
+        <div class="note">See also the <a href="#bnodeprplist">blank node property list</a> syntax.</div>
       </section>
 
     </section>
@@ -412,18 +411,18 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
 
 :spiderman foaf:name "الرجل العنكبوت"^^i18n:ar-eg_rtl .</textarea>
 
-      <p class="note">If no <a>datatype IRI</a> or language tag is given, the datatype <code>xsd:string</code> will be
+      <div class="note">If no <a>datatype IRI</a> or language tag is given, the datatype <code>xsd:string</code> will be
         assumed. In case a language tag is given, the datatype <code>rdf:langString</code> will be assumed. Note that
         it
-        is not possible to specify both a <a>datatype IRI</a> and a language tag.</p>
+        is not possible to specify both a <a>datatype IRI</a> and a language tag.</div>
 
-      <p class="note">Integers, decimals, doubles, and booleans may also be written as string literals with the
+      <div class="note">Integers, decimals, doubles, and booleans may also be written as string literals with the
         appropriate <a>datatype IRI</a> (e.g., <code>"8"^^xsd:int</code> or "true"^^xsd:boolean).
-      </p>
+      </div>
 
-      <p class="note">There are also <a href="#compoundliteral">other mechanisms</a> for describing the language tag
+      <div class="note">There are also <a href="#compoundliteral">other mechanisms</a> for describing the language tag
         and
-        base direction of RDF literals.</p>
+        base direction of RDF literals.</div>
 
       <p>In case the the string literal itself contains the string delimiter (e.g., double quotes), or includes
         newlines, other string delimiters can be used, i.e., single quotes or compound delimiters <code>"""</code> or
@@ -554,7 +553,7 @@ ex:john ex:address [
           </tr>
         </table>
 
-        <p class="note">See also the <a href="#iriprplist">IRI property list</a> syntax.</p>
+        <div class="note">See also the <a href="#iriprplist">IRI property list</a> syntax.</div>
 
         <p>As mentioned, this syntax is useful for cases where a blank node occurs only once as an object.
           In case the blank node occurs several times as an object, such as describing multiple people with the same
@@ -619,7 +618,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 :description_logic_handbook a :Book ;
   :author ( :deborah :daniele :peter) .</textarea>
       <p>This states that the value of the author property is the <em>collection resource</em>.</p>
-      <p class="note"><strong>Any additional meaning is not given by the N3 semantics</strong>.
+      <div class="note"><strong>Any additional meaning is not given by the N3 semantics</strong>.
         For instance, this example does not imply that each <a>member</a> (e.g.,
         <code>:deborah</code>) can be considered as a value of the author property &mdash; i.e., the author property
         does not "distribute" across the <a>members</a>.
@@ -633,10 +632,10 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         &nbsp;&nbsp;&nbsp;&nbsp;<code>:description_logic_handbook :author :deborah, :daniele, :peter .</code><br>
         However, since RDF (and thus N3) statements do not have an inherent order, this example loses meaning
         as we no longer know who can be considered the "first" author.
-      </p>
+      </div>
 
-      <p class="note">To an extent, an N3 collection is equivalent to the more verbose <a
-          href="https://www.w3.org/TR/rdf11-mt/#rdf-collections">RDF Collection vocabulary</a>.</p>
+      <div class="note">To an extent, an N3 collection is equivalent to the more verbose <a
+          href="https://www.w3.org/TR/rdf11-mt/#rdf-collections">RDF Collection vocabulary</a>.</div>
 
       <p>In N3, collections may occur as subjects, predicates or objects in a statement. For instance:</p>
       <textarea class="n3code">@prefix : <http://example.org/#> .
@@ -737,14 +736,14 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <code>:weater a :Cloudy</code>.
       </p>
 
-      <p class="note">
+      <div class="note">
         An <a>N3 rule</a> is actually a N3 statement, where the <a>subject</a> and <a>object</a> constitute <a>quoted
           graphs</a>,
         and the <a>predicate</a> is <code>log:implies</code>, with symbol <code>=&gt;</code> as syntactic sugar.
         <!-- For backward chaining rules (see <a href="n3rulechaining">rule chaining</a>), 
           the predicate is <code>log:impliedBy</code>, with symbol <code>&lt;=</code> as syntactic sugar. -->
         <!-- In fact, these predicates themselves are <a>N3 builtins</a>. -->
-      </p>
+      </div>
 
       <section id='n3rulevars'>
         <h4>Rule Variables</h4>
@@ -771,7 +770,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           meaning we can infer the <a>conclusion</a> for that value, i.e.,
           <code>:spiderman a :Imaginary</code>.
         </p>
-        <p class="note">
+        <div class="note">
           More technically, the triples in the <a>rule premise</a>
           (e.g., <code>?x a :SuperHero</code>) can be seen as <dfn><a
               href="https://www.w3.org/TR/sparql11-query/#QSynTriples">triple
@@ -782,7 +781,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           are bound to the triple pattern's <a>variables</a> (e.g., <code>?x</code>).
           These bound variable values are then used in the inferred conclusion (e.g.,
           <code>:spiderman a :Imaginary</code>).
-        </p>
+        </div>
       </section>
 
       <section id='n3rulechaining'>
@@ -817,13 +816,13 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           the third rule determines what the general effects of flying locomotion are.
         </p>
 
-        <p class="note">
+        <div class="note">
           Variable names only have to be unique within a rule, and not across rules.
           For instance, in the <a href="#chaining_example">prior example</a>,
           we simply could have named every variable <code>?x</code>.
           As with general coding practices, it is typically a good idea to give variables a
           meaningful name.
-        </p>
+        </div>
 
         <p>
           <!-- TODO have a section on N3 reasoners -->
@@ -944,7 +943,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         </code>
       </p>
 
-      <p class="note">
+      <div class="note">
         A <a>builtin statement</a> can be seen as a <a href="https://www.w3.org/TR/sparql11-query/#QSynTriples">triple
           pattern</a> that, for each builtin result,
         yields one or more "matching" triples depending on the builtin. For the example above:<br>
@@ -959,7 +958,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         a join is attempted with the remaining triples in the rule <a>premise</a>.
         Hence, for each matching triple, the <code>string:concatenation</code> <a>builtin statement</a> is evaluated.
         Finally, for each consistent set of variable bindings, the rule conclusion is instantiated and inferred.
-      </p>
+      </div>
 
       <h4>Scoped Negation as Failure (SNAF)</h4>
 
@@ -1029,12 +1028,12 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         secrets.
       </p>
 
-      <p class="note">
+      <div class="note">
         In the two examples above, the <a>blank node</a> object <code>_:t</code> indicates the current <a>N3
           document</a>
         as scope. Alternatively, a <a>quoted graph</a> can be used as the scope as well.
         This is illustrated in the <code>log:notIncludes</code> example below.
-      </p>
+      </div>
 
       <p>
         The <code>log:notIncludes</code> builtin checks whether the given scope <i>does not include</i> a given clause.
@@ -1064,11 +1063,11 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         If so, we infer that this enemy is undefeated, in this case, <code>:sandman</code>.
       </p>
 
-      <p class="note">
+      <div class="note">
         The counterpart of <code>log:notIncludes</code> is <code>log:includes</code>, which checks whether the given
         object scope
         <i>includes</i> a given clause.
-      </p>
+      </div>
 
       <h4>Access Online Knowledge</h4>
       <p>
@@ -1187,7 +1186,7 @@ _:a :hasCity "Metropolis" .</textarea>
 _:d :hasMother _:m.
 _:d a :Person.</textarea>
 
-      <p class="note">In SPARQL, a property path is used in the
+      <div class="note">In SPARQL, a property path is used in the
         predicate position to describe a string of relationships between
         a subject and an object resource.
         In contrast, an N3 <a>resource path</a> is most often used in the subject or
@@ -1199,7 +1198,7 @@ _:d a :Person.</textarea>
         &nbsp;&nbsp;&nbsp;&nbsp;<code>:joe _:bn_1 "Metropolis" .</code><br>
         &nbsp;&nbsp;&nbsp;&nbsp;<code>:hasAddress :hasCity _:bn_1 .</code><br>
         Which is likely not the intention of the author.
-      </p>
+      </div>
 
     </section>
   </section>
@@ -1240,9 +1239,9 @@ _:d a :Person.</textarea>
   :hasObject :Lenny_The_Lion ;
   :hasAmount 15 ;
   :hasSeller <http://books.example.com> .</textarea>
-        <p class="note">Either you could mint a new <a>IRI</a> for representing the n-ary relation, or simply use a <a
+        <div class="note">Either you could mint a new <a>IRI</a> for representing the n-ary relation, or simply use a <a
             href="#bnodes">blank node</a>. In case other parties may want to refer to the n-ary relation from
-          outside the N3 graph, one could choose to mint a new <a>IRI</a>.</p>
+          outside the N3 graph, one could choose to mint a new <a>IRI</a>.</div>
         <p>In other cases, things are more naturally described as <em>properties of relations</em>, rather than n-ary
           relations &mdash; for instance, the provenance of a piece of information, the trend of someone's body
           temperature and when the temperature was taken. Nevertheless, these can be represented in the same way as
@@ -1283,13 +1282,13 @@ _:to1 :temperatureTrend :RISING ;
           relation. Hence, any descriptive properties of the relation, in addition to participants in the relation,
           can
           simply be attached to the entity.</p>
-        <p class="note">In this example, we made a statement with one of the participants (<code>:Christine</code>) as
+        <div class="note">In this example, we made a statement with one of the participants (<code>:Christine</code>) as
           subject, and the relation resource (<code>_:to1</code>) as object. An alternative would have been to
           add
           <code>:Christine</code> as just another element of the n-ary relation, e.g., using a property
           <code>temperatureOf</code>. Our modeling choice here aimed to indicate that Christine is somehow the <a
             href="https://www.w3.org/TR/swbp-n-aryRelations/#useCase2">"owner" of the relationship</a>.
-        </p>
+        </div>
         <!--
             (NOTE from a data modeling perspective, there would be a clear problem if the relation entity could have multiple "subjects" &mdash; e.g., in case it is being re-used to represent the same diagnosis for multiple patients. In that case, each of the patients'
             diagnosis probabilities would be linked to the same relation entity &mdash; and we lose the link that tells us which probability belongs to which patient. This can be seen as a kind of "fan trap".)
