@@ -56,7 +56,6 @@ div.menu {
     background-position: 30px 0;
     background-repeat: no-repeat;
     background-image: url(../logo.png);
-    background-size: 50%;
     padding-top: 100px;
 }
 
@@ -181,10 +180,28 @@ code {
     /* border: 1px solid grey; */
     padding: 10px;
     background-color: #F9F9F9;
-    width: 80%;
+    width: 90%;
 }
 
 .note , .note p {
-    font-size: 15px;
-    line-height: 1.25rem;
+    font-size: 16px;
+    line-height: 1.5rem;
+}
+
+
+@media (max-width: 1190px) {
+    #abstract {
+        padding-bottom: 0;
+    }
+
+    div.menu {
+        float: none;
+        position: static;
+        background: none;
+        padding-top: 0;
+    }
+
+    body>section {
+        margin-left: 0;
+    }
 }
