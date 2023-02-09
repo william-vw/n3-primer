@@ -520,7 +520,7 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
           For details, please refer to <a href="https://www.w3.org/TR/rdf11-concepts/">RDF11-CONCEPTS</a>.
         </p>
         <section id='bnodeids'>
-          <h3>Blank node identifiers</h3>
+          <h4>Blank node identifiers</h4>
           <p>A <a>blank node</a> can be represented by a <dfn>blank node identifier</dfn>,
             which is unique within the <a>N3 graph</a>, expressed as <code>_:someLabel</code>.
             Then, we use this identifier within our <a>N3 graph</a> to describe the corresponding resource, same as with
@@ -543,7 +543,7 @@ _:someTree rdf:type ex:CypressTree .</textarea>
             if you want other <a>N3 graphs</a> to describe it, you should represent it using an <a>IRI</a>.</p>
         </section>
         <section id='bnodeprplist'>
-          <h3>Blank node property lists</h3>
+          <h4>Blank node property lists</h4>
           <p>Using a <a>blank node identifier</a> requires introducing a new identifier for each <a>blank node</a>.
             In many cases, however, a blank node occurs only once as an object,
             and is then further described as a subject in other statements, such as in the <a
@@ -601,7 +601,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         </section>
 
         <section id="bnode-use-cases">
-          <h3>Blank node use cases</h3>
+          <h4>Blank node use cases</h4>
           <p>Below, we summarize typical use cases where <a>blank nodes</a> are used to describe resources.</p>
           <p><strong>Unknown resources</strong>: we might <a
               href="https://www.w3.org/TR/rdf11-primer/#section-blank-node">want to state</a>
@@ -647,7 +647,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 :description_logic_handbook a :Book ;
   :author ( :deborah :daniele :peter) .</textarea>
         <p>This states that the value of the author property is the <em>collection resource</em>.</p>
-        <div class="note"><strong>Any additional meaning is not given by the N3 semantics</strong>.
+        <!-- <div class="note"><strong>Any additional meaning is not given by the N3 semantics</strong>.
           For instance, this example does not imply that each <a>member</a> (e.g.,
           <code>:deborah</code>) can be considered as a value of the author property &mdash; i.e., the author property
           does not "distribute" across the <a>members</a>.
@@ -661,7 +661,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           &nbsp;&nbsp;&nbsp;&nbsp;<code>:description_logic_handbook :author :deborah, :daniele, :peter .</code><br>
           However, since RDF (and thus N3) statements do not have an inherent order, this example loses meaning
           as we no longer know who can be considered the "first" author.
-        </div>
+        </div> -->
 
         <div class="note">To an extent, an N3 collection is equivalent to the more verbose <a
             href="https://www.w3.org/TR/rdf11-mt/#rdf-collections">RDF Collection vocabulary</a>.</div>
@@ -675,8 +675,8 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
 (:Fred :Wilma :Dino) (:read :liked :approved) 
   (:resolution1 :resolution2 :resolution3) .</textarea>
-        <p>As before: any meaning that goes beyond the fact that 3 <a>collection</a> resources are involved in this
-          statement, would be application-specific.</p>
+        <!-- <p>As before: any meaning that goes beyond the fact that 3 <a>collection</a> resources are involved in this
+          statement, would be application-specific.</p> -->
         <!-- &mdash; for instance, that the predicate
         <code>(:read :liked :approved)</code> means that the subject <a>collection</a> did all those things for all
         members in the object <a>collection</a>. -->
@@ -735,11 +735,11 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       <p>N3 supports declarative programming by allowing to make statements about the world,
         including logical implications, or <dfn data-lt="logical implication|N3 rule">N3 rules</dfn>, which can be
         loosely compared to If-Then statements.
-        Based on the N3 semantics, so-called inferences can be drawn from these statements.
-        An N3 reasoner can draw such inferences automatically, to support
+        Based on the N3 semantics, <i>inferences</i> can be drawn from these statements.
+        An <a href="#n3_reasoners">N3 reasoner</a> can draw such inferences automatically, to support
         problem solving, decision making, or simply enriching your Knowledge Graph.</p>
 
-      <p>For instance, the following is an <a>N3 rule</a>:</p>
+      <p>For instance, the following is an N3 rule:</p>
 
       <textarea class="n3code">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://example.org/#>.
@@ -760,7 +760,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       </p>
 
       <p>
-        Hence, when the <a>premise</a> holds, then we can safely infer the <a>conclusion</a>.
+        Hence, when the <a>premise</a> holds, then we can <i>infer</i> the <a>conclusion</a>.
         This is also referred to as <dfn data-lt="fire|firing">firing</dfn> the rule.
         For the example above, if we state <code>:weather a :Raining</code>, then we can safely infer
         <code>:weater a :Cloudy</code>.
@@ -792,8 +792,8 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 } .</textarea>
 
         <p>
-          This states that the <a>N3 rule</a> is true for each value of variable <code>?x</code>:
-          when the <a>premise</a> is true for a particular value for <code>?x</code>
+          This states that the <a>N3 rule</a> is true for each value of variable <code>?x</code>.
+          So, when the <a>premise</a> is true for a particular value for <code>?x</code>
           (being a super hero),
           then the <a>conclusion</a> must be true for that value as well (being imaginary).
           For the example above, the <a>premise</a> is true for value <code>:spiderman</code>,
@@ -801,7 +801,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           <code>:spiderman a :Imaginary</code>.
         </p>
         <div class="note">
-          More technically, the triples in the <a>rule premise</a>
+          Compared to SPARQL, the triples in the <a>rule premise</a>
           (e.g., <code>?x a :SuperHero</code>) can be seen as <dfn><a
               href="https://www.w3.org/TR/sparql11-query/#QSynTriples">triple
               patterns</a></dfn>.
@@ -817,7 +817,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       <section id='n3rulechaining'>
         <h3>Rule chaining</h3>
 
-        <p>In practice, a pivotal feature is that <a>N3 rules</a> can be "chained":
+        <p><a>N3 rules</a> can be "chained":
           a rule can depend on the results of other rules. For example:
         </p>
 
