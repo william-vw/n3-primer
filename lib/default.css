@@ -59,7 +59,7 @@ div.menu {
     padding-top: 100px;
 }
 
-.menu ol {
+.menu ol , .menu ul {
     padding-left: 0;
 }
 
@@ -76,11 +76,24 @@ div.menu {
 }
 
 .menu>ol>li {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 .menu>ol>li>ol>li {
+    font-size: 18px;
+}
+
+.menu>ol>li>ol>li>ul>li {
     font-size: 16px;
+}
+
+.menu ul {
+    margin: 5px 0 0 15px;
+}
+
+.menu ul>li {
+    padding: 0;
+    line-height: 1.5;
 }
 
 body {
