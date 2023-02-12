@@ -59,7 +59,8 @@ div.menu {
     padding-top: 100px;
 }
 
-.menu ol , .menu ul {
+.menu ol,
+.menu ul {
     padding-left: 0;
 }
 
@@ -171,7 +172,8 @@ table.button_container td:nth-child(2) {
     margin: 0;
 }
 
-.button_container td , .button_container tr {
+.button_container td,
+.button_container tr {
     padding: 0;
     margin: 0;
 }
@@ -179,6 +181,7 @@ table.button_container td:nth-child(2) {
 .outcontainer {
     display: none;
     position: relative;
+    width: 50%;
 }
 
 .outcontainer h5 {
@@ -191,13 +194,11 @@ table.button_container td:nth-child(2) {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     padding: 15px;
     padding-left: 25px;
-    width: auto;
     background: #fcfaee;
     padding: .5em;
     border-left-width: .5em;
     border-left-style: solid;
     border-color: #e68103;
-    width: 50%;
     font-family: sans-serif;
 }
 
@@ -207,8 +208,8 @@ table.button_container td:nth-child(2) {
 
 .outcontainer .close {
     position: absolute;
-    top: 0; 
-    left: 50%;
+    top: 0;
+    right: 15px;
     top: 40px;
     cursor: pointer;
 }
@@ -251,7 +252,9 @@ code {
     margin-top: 10px;
 }
 
-.note , .note p , .note ul {
+.note,
+.note p,
+.note ul {
     font-size: 16px;
     line-height: 1.5rem;
     font-family: Helvetica, sans-serif;
@@ -276,5 +279,23 @@ code {
 
     body>section {
         margin-left: 0;
+    }
+}
+
+@media (max-width: 950px) {
+
+    div.CodeMirror,
+    .button_container {
+        width: 100%;
+    }
+
+    .outcontainer {
+        width: 80%;
+    }
+}
+
+@media (max-width: 700px) {
+    .outcontainer {
+        width: 100%;
     }
 }
