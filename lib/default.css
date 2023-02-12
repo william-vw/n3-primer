@@ -1,8 +1,8 @@
 table,
 th,
 td {
-    border: 1px solid black;
-    border-collapse: collapse;
+    /* border: 1px solid black;
+    border-collapse: collapse; */
     padding: 5px;
 }
 
@@ -150,13 +150,67 @@ h4 {
 }
 
 div.CodeMirror {
-    width: 80%;
+    width: 75%;
 }
 
 .button_container {
-    width: 80%;
-    text-align: right;
+    width: 75%;
     margin-bottom: 25px;
+}
+
+div.button_container {
+    text-align: right;
+}
+
+table.button_container td:nth-child(2) {
+    text-align: right;
+}
+
+.button_container {
+    padding: 0;
+    margin: 0;
+}
+
+.button_container td , .button_container tr {
+    padding: 0;
+    margin: 0;
+}
+
+.outcontainer {
+    display: none;
+    position: relative;
+}
+
+.outcontainer h5 {
+    margin: 15px 0 10px 0;
+    font-size: 18px;
+}
+
+.ruleout {
+    white-space: pre-wrap;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    padding: 15px;
+    padding-left: 25px;
+    width: auto;
+    background: #fcfaee;
+    padding: .5em;
+    border-left-width: .5em;
+    border-left-style: solid;
+    border-color: #e68103;
+    width: 50%;
+    font-family: sans-serif;
+}
+
+.outcontainer .close::before {
+    content: "×";
+}
+
+.outcontainer .close {
+    position: absolute;
+    top: 0; 
+    left: 50%;
+    top: 40px;
+    cursor: pointer;
 }
 
 table .CodeMirror,

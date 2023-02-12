@@ -22,14 +22,15 @@
   <script src="lib/codemirror-n3/n3-mode.js"></script>
   <link rel="stylesheet" href="lib/codemirror-n3/rdf.css">
 
-  <!-- <script src="https://eyereasoner.github.io/eye-js/2/latest/index.js"></script> -->
+  <script src="https://eyereasoner.github.io/eye-js/2/latest/index.js"></script>
 
   <script src="lib/dfn.js"></script>
-  <script src="lib/stylize.js"></script>
+  <script src="lib/run_code.js"></script>
+  <script src="lib/setup_code.js"></script>
 
   <script>
     function loaded() {
-      stylizeSamples();
+      setupSamples();
       mapDfn();
     }
   </script>
@@ -762,12 +763,22 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       <p>
         Hence, when the <a>premise</a> holds, then we can <i>infer</i> the <a>conclusion</a>.
         This is also referred to as <dfn data-lt="fire|firing">firing</dfn> the rule.
-        For the example above, if we state <code>:weather a :Raining</code>, then we can safely infer
-        <code>:weater a :Cloudy</code>.
+        For the example above, if we additionally state <code>:weather a :Raining</code>, then we can safely infer
+        <code>:weater a :Cloudy</code>:
       </p>
 
+      <textarea class="n3code runnable">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <http://example.org/#>.
+
+:weather a :Raining .
+
+{ :weather a :Raining
+} => {
+  :weather a :Cloudy
+} .</textarea>
+      
       <div class="note">
-        An <a>N3 rule</a> is actually a N3 statement, where the <a>subject</a> and <a>object</a> constitute <a>quoted
+        An <a>N3 rule</a> is actually an <a>N3 statement</a>, where the <a>subject</a> and <a>object</a> constitute <a>quoted
           graphs</a>,
         and the <a>predicate</a> is <code>log:implies</code>, with symbol <code>=&gt;</code> as syntactic sugar.
         <!-- For backward chaining rules (see <a href="n3rulechaining">rule chaining</a>), 
@@ -781,7 +792,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <p><a>N3 rules</a> are more useful when they include <dfn>variables</dfn>.
           For instance, the following includes a universal variable (prefixed by <code>?</code>):
         </p>
-        <textarea class="n3code">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+        <textarea class="n3code runnable">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://example.org/#>.
 
 :spiderman a :SuperHero .
@@ -821,7 +832,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           a rule can depend on the results of other rules. For example:
         </p>
 
-        <textarea id="chaining_example" class="n3code">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+        <textarea id="chaining_example" class="n3code runnable">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://example.org/#>.
             
 :spiderman a :WebSlinger .
@@ -869,10 +880,11 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <p>
           For instance, the following is equivalent to the <a href="#chaining_example">prior example</a>
           and combines forward and backward chaining:</p>
-        <textarea class="n3code" id="backward_chaining_example">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+        <textarea class="n3code runnable" id="backward_chaining_example">@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://example.org/#>.
             
 :spiderman a :WebSlinger .
+:44th :traffic :heavy .
 
 { ?slinger :locomotion :flying } <= { ?slinger a :WebSlinger } .
 
@@ -910,10 +922,11 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
       <p>
         <!-- An <a>N3 builtin</a> can be used within an <a>N3 rule</a> as part of an <a>N3 statement</a>. -->
-        As a simple example, the rule below uses the <code>math:quotient</code> builtin to calculate a person's height in
+        As a simple example, the rule below uses the <code>math:quotient</code> builtin to calculate a person's height
+        in
         meters:
       </p>
-      <textarea class="n3code" id="builtin_height_example">@prefix math: <http://www.w3.org/2000/10/swap/math#> .
+      <textarea class="n3code runnable" id="builtin_height_example">@prefix math: <http://www.w3.org/2000/10/swap/math#> .
 @prefix : <http://example.org/#>.
 
 :spiderman :heightInCm 180 .
@@ -936,7 +949,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       <p><a>N3 builtins</a> can generate multiple results.
         Below, we use the <code>list:iterate</code> builtin to iterate over collection elements,
         and subsequently constructs a string for each element:</p>
-      <textarea class="n3code" id="iterate_example">@prefix list: <http://www.w3.org/2000/10/swap/list#> .
+      <textarea class="n3code runnable" id="iterate_example">@prefix list: <http://www.w3.org/2000/10/swap/list#> .
 @prefix string: <http://www.w3.org/2000/10/swap/string#> .
 @prefix : <http://example.org/#>.
 
@@ -1001,7 +1014,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         For instance, the rule below uses <code>log:collectAllIn</code> to collect all of spiderman's defeated villains
         found in the current document:
       </p>
-      <textarea class="n3code" id="collectallin_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code runnable" id="collectallin_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.org/#>.
 
 :spiderman a :SuperHero .
@@ -1033,7 +1046,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       </p>
       <p>
         The example below uses <code>log:forAllIn</code> to determine whether a super-hero's identity is safe:</p>
-      <textarea class="n3code" id="forallin_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code runnable" id="forallin_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.org/#> .
 
 :spiderman a :SuperHero .
@@ -1071,7 +1084,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         as was the case for the prior two examples.
         The rule finds any of spiderman's enemies who have not been defeated, at least,
         as reported by the Daily Bugle:</p>
-      <textarea class="n3code" id="notincludes_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code runnable" id="notincludes_example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.org/#> .    
 
 :spiderman :hasEnemy :green-goblin , :doctor-octopus, :sandman .
@@ -1129,7 +1142,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <a>quoted
           graph</a>:
       </p>
-      <textarea class="n3code" id="semantics-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code runnable" id="semantics-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com/> .
 
 { 	
@@ -1148,7 +1161,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         The <code>log:conclusion</code> builtin allows generating the closure of a given <a>quoted graph</a>,
         i.e., extending the graph with all applicable rule inferences.
         This includes <a>quoted graphs</a> retrieved and parsed from online sources. For example:</p>
-      <textarea class="n3code" id="concl-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
+      <textarea class="n3code runnable" id="concl-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com/> .
 
 {  <https://raw.githubusercontent.com/w3c/N3/master/tests/N3Tests/rules.n3> log:semantics ?g .
@@ -1199,7 +1212,7 @@ _:a :hasCity "Metropolis" .</textarea>
         node. </p>
 
       <div class="note">
-        You can also get this expansion by opening the <a href="#n3-example-34">original example</a> in the editor 
+        You can also get this expansion by opening the <a href="#n3-example-34">original example</a> in the editor
         and selecting "closure" instead of "derivations" under the Execute button.
       </div>
 
