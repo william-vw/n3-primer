@@ -32,6 +32,15 @@
     function loaded() {
       setupSamples();
       mapDfn();
+
+      // (seems to be bug in chrome, safari?)
+      if (window.location.hash) {
+        setTimeout(function () {
+          let hash = window.location.hash;
+          window.location.hash = "";
+          window.location.hash = hash;
+        }, 1);
+      }
     }
   </script>
 
@@ -1175,6 +1184,23 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         Instead of simply printing the inferences, one could, e.g., use the <code>log:forAllIn</code> builtin to
         check whether all persons listed in the online source are indeed inferred to be animals as well.
       </p>
+
+      <h4>Lists of built-ins</h4>
+      <p>Built-ins are denoted by a controlled IRI defined in one of the core namespaces:</p>
+      <ul>
+        <li><a href="../ns/crypto.html">Crypto</a> –
+          <a href="http://www.w3.org/2000/10/swap/crypto#">http://www.w3.org/2000/10/swap/crypto#</a>,</li>
+        <li><a href="../ns/list.html">List</a> –
+          <a href="http://www.w3.org/2000/10/swap/list#">http://www.w3.org/2000/10/swap/list#</a>,</li>
+        <li><a href="../ns/log.html">Log</a> –
+          <a href="http://www.w3.org/2000/10/swap/log#">http://www.w3.org/2000/10/swap/log#</a>,</li>
+        <li><a href="../ns/math.html">Math</a> –
+          <a href="http://www.w3.org/2000/10/swap/math#">http://www.w3.org/2000/10/swap/math#</a>,</li>
+        <li><a href="../ns/string.html">String</a> –
+          <a href="http://www.w3.org/2000/10/swap/string#">http://www.w3.org/2000/10/swap/string#</a>, and</li>
+        <li><a href="../ns/time.html">Time</a> –
+          <a href="http://www.w3.org/2000/10/swap/time#">http://www.w3.org/2000/10/swap/time#</a>.</li>
+      </ul>
     </section>
 
     <section id='paths'>
