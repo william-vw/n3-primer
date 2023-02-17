@@ -181,7 +181,7 @@ table.button_container td:nth-child(2) {
 .outcontainer {
     display: none;
     position: relative;
-    width: 50%;
+    width: 60%;
 }
 
 .outcontainer h5 {
