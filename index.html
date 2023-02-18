@@ -921,13 +921,22 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
     <section id='builtins'>
       <h3>N3 builtins</h3>
+
+      <ul class="subsections">
+        <li><a href="#simple_builtins">Simple Builtins</a></li>
+        <li><a href="#builtins_multiple_results">Builtins with Multiple Results</a></li>
+        <li><a href="#snaf">Scoped Negation as Failure (SNAF)</a></li>
+        <li><a href="#builtins_online">Access Online Knowledge</a></li>
+        <li><a href="#builtin_list">Lists of built-ins</a></li>
+      </ul>
+
       <p>
         An <dfn data-lt="N3 builtin|builtin">N3 builtin</dfn> is used within a <a>N3 rule</a> to
         implement an arbitrary operation on an N3 <a>resource</a> or even an entire <a>N3 document</a>.
         Builtins include mathematic, string, time and cryptography operators,
         operations on collections and graphs, and logical operations in general.</p>
 
-      <h4>Simple Builtins</h4>
+      <h4 id="simple_builtins">Simple Builtins</h4>
 
       <p>
         <!-- An <a>N3 builtin</a> can be used within an <a>N3 rule</a> as part of an <a>N3 statement</a>. -->
@@ -953,7 +962,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         as the result is then bound to the object variable <code>?m</code>.
       </p>
 
-      <h4>Builtins with Multiple Results</h4>
+      <h4 id="builtins_multiple_results">Builtins with Multiple Results</h4>
 
       <p><a>N3 builtins</a> can generate multiple results.
         Below, we use the <code>list:iterate</code> builtin to iterate over collection elements,
@@ -1012,7 +1021,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         Finally, for each consistent set of variable bindings, the rule conclusion is instantiated and inferred.
       </div>
 
-      <h4>Scoped Negation as Failure (SNAF)</h4>
+      <h4 id="snaf">Scoped Negation as Failure (SNAF)</h4>
 
       <p>
         <a>N3 builtins</a> can also operate on a local <a>quoted graph</a> or even an entire <a>N3 document</a>.
@@ -1121,7 +1130,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <i>includes</i> a given clause.
       </div>
 
-      <h4>Access Online Knowledge</h4>
+      <h4 id="builtins_online">Access Online Knowledge</h4>
       <p>
         To dynamically retrieve online knowledge within an <a>N3 rule</a>,
         <code>log:semantics</code> and <code>log:conclusion</code> builtins allow pulling in, parsing, and reasoning
@@ -1185,7 +1194,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         check whether all persons listed in the online source are indeed inferred to be animals as well.
       </p>
 
-      <h4>Lists of built-ins</h4>
+      <h4 id="builtin_list">Lists of built-ins</h4>
       <p>Below, you can find all builtins currently supported by N3, grouped by their category:</p>
       <ul>
         <li><a href="../ns/crypto.html">Crypto</a> –
