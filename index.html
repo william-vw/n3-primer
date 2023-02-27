@@ -377,9 +377,9 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
         a :Actor 
       ]
     ] ;
-    :portrayedBy [ id :tobey-maguire
-        a :Actor
-    ] .</textarea>
+  :portrayedBy [ id :tobey-maguire
+      a :Actor
+  ] .</textarea>
               </td>
             </tr>
           </table>
@@ -717,7 +717,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
   :retrievedFrom <http://lies_r_us.com> ;
   :retrievedAt "2020-07-12T09:01:33"^^xsd:dateTime .</textarea>
         <p>
-          Essentially, a <a>quoted graph</a> records of the occurrence of an RDF graph &mdash; i.e., a <em>quoting</em>
+          Essentially, a <a>quoted graph</a> represents the occurrence of an RDF graph &mdash; i.e., a <em>quoting</em>
           or
           <em>citing</em> of the graph. Importantly, a <a>quoted graph</a> does not assert the contents of the RDF
           graph as being true (e.g., <code>:cervantes dc:wrote :moby_dick</code>). In fact, the <a>quoted graph</a> is
@@ -880,10 +880,9 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           can operate in forward chaining, backward chaining, or some hybrid mode.
           An <a>N3 rule</a> can also indicate which mode should be used,
           by using the appropriate predicate.
-          Up until now, we have been utilizing <code>=&gt;</code>, which is syntactic sugar for <code>log:implies</code>
-          and
-          directs the reasoner to operate in forward chaining mode.
-          The <code>&lt;=</code> predicate, syntactic sugar for <code>log:impliedBy</code>, indicates a backward
+          Up until now, we have been using <code>=&gt;</code>, which is syntactic sugar for <code>log:implies</code>
+          and directs the reasoner to operate in forward chaining mode.
+          The <code>&lt;=</code> predicate, which is syntactic sugar for <code>log:impliedBy</code>, indicates a backward
           chaining mode.
         </p>
         <p>
@@ -975,7 +974,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           
 { :race :finalists ?finalists .
   ?finalists list:iterate ( ?i ?finalist ) .
-  ( ?i ". " ?finalist "<br>" ) string:concatenation ?entry
+  ( ?i ". " ?finalist ) string:concatenation ?entry
 
 } => { :race :entries ?entry } .</textarea>
 
@@ -993,15 +992,10 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <code>( ?i = 3, ?finalist = :spiderman )</code><br>
         <br>
 
-        For each set of bindings, the <code>string:concatenation</code> builtin concatenates the resources in the
-        subject
-        collection,
-        and binds the result to the object variable (<code>?entry</code>). This will lead to the following output:<br>
-        <code>
-            1. flash<br>
-            2. superman<br>
-            3. spiderman<br>
-        </code>
+        For each set of bindings, the <code>string:concatenation</code> builtin concatenates the resources in the 
+        subject collection, and binds the result to the object variable (<code>?entry</code>). 
+        This will lead to the following object values:
+        <code>"1. :flash" , "2. :superman" , and "3. :spiderman" </code>
       </p>
 
       <div class="note">
@@ -1410,6 +1404,10 @@ _:to1 :temperatureTrend :RISING ;
   rdf:language "ar-eg" ;
   rdf:direction "rtl"
 ] .</textarea>
+    <p>
+      For more, see the <a href="https://github.com/w3c/rdf-star-wg/blob/main/docs/text-direction.md">"text direction"</a>
+      discussions in the RDF-star working group.
+    </p>
     </section>
     <section id="reification">
       <h3>Quoted graphs</h3>
