@@ -29,6 +29,10 @@ table.ex,
     text-align: center;
 }
 
+.ex td {
+    max-width: 40vw;
+}
+
 .n3code,
 .ex {
     width: 90%;
@@ -299,10 +303,18 @@ code {
     .outcontainer {
         width: 80%;
     }
+    
+    .ex td {
+        max-width: 45vw;
+    }
 }
 
 @media (max-width: 700px) {
     .outcontainer {
         width: 100%;
+    }
+    
+    .ex td {
+        max-width: 45vw;
     }
 }
