@@ -59,11 +59,12 @@
       as is the case with imperative programming languages such as JavaScript/TypeScript, Java, or Python.</p>
     <p>
       <b>Building semantic Knowledge Graphs</b>. N3 provides a concise syntax and constructs such as
-      <a href="#quotedgraphs">quoted graphs</a>, which allow attaching metadata to statements (e.g., provenance);
+      <a href="#graphterms">graph terms</a>, which allow attaching metadata to statements (e.g., provenance);
       and <a href="#collections">collections</a>, as first-class citizens to describe ordered collections of things.
     </p>
     <p>
-      <b>Machine reasoning on semantic Knowledge Graphs</b>. N3 supports the creation of <a href="#n3rules">N3 rules</a>,
+      <b>Machine reasoning on semantic Knowledge Graphs</b>. N3 supports the creation of <a href="#n3rules">N3
+        rules</a>,
       loosely comparable to If-Then statements,
       which infer new symbolic knowledge from semantic Knowledge Graphs.
       This supports a wide range of scenarios, including simply expanding the available knowledge,
@@ -102,7 +103,7 @@
               <li><a href="#literals">Literals</a></li>
               <li><a href="#bnodes">Blank nodes</a></li>
               <li><a href="#collections">Collections</a></li>
-              <li><a href="#quotedgraphs">Quoted graphs</a></li>
+              <li><a href="#graphterms">Graph terms</a></li>
             </ul>
           </li>
           <li><a href="#n3rules">N3 rules</a>
@@ -119,7 +120,7 @@
         <ol type="1">
           <li><a href="#naryrel">N-ary relations</a></li>
           <li><a href="#compoundliteral">Compound literal</a></li>
-          <li><a href="#reification">Quoted graphs</a></li>
+          <li><a href="#reification">Graph terms</a></li>
         </ol>
       </li>
     </ol>
@@ -189,7 +190,7 @@
       <dfn>predicate</dfn>, and
       <dfn>object</dfn> resource.
       An <dfn data-lt="resource|N3 resource">N3 resource</dfn> can be represented by any <a>N3 term</a>:
-      an RDF <a>IRI</a>, <a>literal</a> or <a>blank node</a>; or an N3 <a>quoted graph</a>, <a>collection</a>,
+      an RDF <a>IRI</a>, <a>literal</a> or <a>blank node</a>; or an N3 <a>graph term</a>, <a>collection</a>,
       <a>logical implication</a>, <a>variable</a> or <a>N3
         builtin</a>.
       Comments are indicated using a separate '#' and continue until the end of the line.
@@ -250,7 +251,7 @@
       <h2>Terms</h2>
       <p>
         An N3 resource in an <a>N3 statement</a> can be represented by any <dfn>N3 term</dfn>:
-        an RDF <a>IRI</a>, <a>literal</a> or <a>blank node</a>; or an N3 <a>quoted graph</a>, <a>collection</a>,
+        an RDF <a>IRI</a>, <a>literal</a> or <a>blank node</a>; or an N3 <a>graph term</a>, <a>collection</a>,
         <a>logical implication</a>, <a>variable</a> or <a>N3 builtin</a>.
       </p>
       <section id='iris'>
@@ -412,10 +413,12 @@ ex:green-goblin foaf:name "Green Goblin" .</textarea>
         <p>For details on numerical syntaxes (e.g., decimals, doubles), we refer to the <a
             href="https://www.w3.org/TR/turtle/#abbrev">RDF
             1.1: Turtle (Section 2.5.2)</a> specification.</p>
-        <p>Other literals, such as strings, but also dates, binary, octal or hex code, XML or JSON code, or other types of
-            numbers (e.g., shorts), need to be written as <b>datatyped literals</b>. These are represented as a string, 
-            followed by the `^^` symbol and the corresponding <dfn data-cite="XMLSCHEMA11-2#built-in-datatypes">datatype IRI</dfn>.
-            (`xsd:string` is the datatype IRI for strings; this is the default and can be omitted). For instance:
+        <p>Other literals, such as strings, but also dates, binary, octal or hex code, XML or JSON code, or other types
+          of
+          numbers (e.g., shorts), need to be written as <b>datatyped literals</b>. These are represented as a string,
+          followed by the `^^` symbol and the corresponding <dfn data-cite="XMLSCHEMA11-2#built-in-datatypes">datatype
+            IRI</dfn>.
+          (`xsd:string` is the datatype IRI for strings; this is the default and can be omitted). For instance:
         </p>
 
         <textarea class="n3code">@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -700,12 +703,12 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
             ).</pre>
               -->
       </section>
-      <section id='quotedgraphs'>
-        <h3>Quoted graphs</h3>
+      <section id='graphterms'>
+        <h3>Graph terms</h3>
         <p>
           It is often useful to attach metadata to groups of triples &mdash;
           to give the provenance, context, or version of the information, our opinion on the matter, and so on.
-          We can use <dfn>quoted graphs</dfn> to quote RDF graphs, and then describe the <a>quoted graph</a> using <a>N3
+          We can use <dfn>graph terms</dfn> to quote RDF graphs, and then describe the <a>graph term</a> using <a>N3
             statements</a>. For instance:
         </p>
         <textarea class="n3code">@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -716,14 +719,14 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
   :retrievedFrom <http://lies_r_us.com> ;
   :retrievedAt "2020-07-12T09:01:33"^^xsd:dateTime .</textarea>
         <p>
-          Essentially, a <a>quoted graph</a> represents the occurrence of an RDF graph &mdash; i.e., a <em>quoting</em>
+          Essentially, a <a>graph term</a> represents the occurrence of an RDF graph &mdash; i.e., a <em>quoting</em>
           or
-          <em>citing</em> of the graph. Importantly, a <a>quoted graph</a> does not assert the contents of the RDF
-          graph as being true (e.g., <code>:cervantes dc:wrote :moby_dick</code>). In fact, the <a>quoted graph</a> is
+          <em>citing</em> of the graph. Importantly, a <a>graph term</a> does not assert the contents of the RDF
+          graph as being true (e.g., <code>:cervantes dc:wrote :moby_dick</code>). In fact, the <a>graph term</a> is
           interpreted as a resource on its own .
         </p>
-        <p>As with <a>collections</a>, <a>quoted graphs</a> can be used in any position in an <a>N3 statement</a>.</p>
-        <p>As they represent a <i>quoting</i> of RDF graphs, <a>quoted graphs</a> are not "referentially transparent".
+        <p>As with <a>collections</a>, <a>graph terms</a> can be used in any position in an <a>N3 statement</a>.</p>
+        <p>As they represent a <i>quoting</i> of RDF graphs, <a>graph terms</a> are not "referentially transparent".
           For
           instance:</p>
         <textarea class="n3code">@prefix : <http://example.org/> .
@@ -784,10 +787,10 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 } => {
   :weather a :Cloudy
 } .</textarea>
-      
+
       <div class="note">
-        An <a>N3 rule</a> is actually an <a>N3 statement</a>, where the <a>subject</a> and <a>object</a> constitute <a>quoted
-          graphs</a>,
+        An <a>N3 rule</a> is actually an <a>N3 statement</a>, where the <a>subject</a> and <a>object</a> constitute
+        <a>graph terms</a>,
         and the <a>predicate</a> is <code>log:implies</code>, with symbol <code>=&gt;</code> as syntactic sugar.
         <!-- For backward chaining rules (see <a href="n3rulechaining">rule chaining</a>), 
           the predicate is <code>log:impliedBy</code>, with symbol <code>&lt;=</code> as syntactic sugar. -->
@@ -881,7 +884,8 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
           by using the appropriate predicate.
           Up until now, we have been using <code>=&gt;</code>, which is syntactic sugar for <code>log:implies</code>
           and directs the reasoner to operate in forward chaining mode.
-          The <code>&lt;=</code> predicate, which is syntactic sugar for <code>log:impliedBy</code>, indicates a backward
+          The <code>&lt;=</code> predicate, which is syntactic sugar for <code>log:impliedBy</code>, indicates a
+          backward
           chaining mode.
         </p>
         <p>
@@ -925,7 +929,6 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <li><a href="#builtins_multiple_results">Builtins with Multiple Results</a></li>
         <li><a href="#snaf">Scoped Negation as Failure (SNAF)</a></li>
         <li><a href="#builtins_online">Access Online Knowledge</a></li>
-        <li><a href="#builtin_list">Lists of built-ins</a></li>
       </ul>
 
       <p>
@@ -933,6 +936,15 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         implement an arbitrary operation on an N3 <a>resource</a> or even an entire <a>N3 document</a>.
         Builtins include mathematic, string, time and cryptography operators,
         operations on collections and graphs, and logical operations in general.</p>
+
+      <p>
+        You can find a list of builtins here: <a href="https://w3c-cg.github.io/n3Builtins/#builtins" target="_blank">N3
+          Builtin Functions</a>.
+      </p>
+
+      <p>
+        Below, we give a general overview of the different types of builtins.
+      </p>
 
       <h4 id="simple_builtins">Simple Builtins</h4>
 
@@ -991,8 +1003,8 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         <code>( ?i = 3, ?finalist = :spiderman )</code><br>
         <br>
 
-        For each set of bindings, the <code>string:concatenation</code> builtin concatenates the resources in the 
-        subject collection, and binds the result to the object variable (<code>?entry</code>). 
+        For each set of bindings, the <code>string:concatenation</code> builtin concatenates the resources in the
+        subject collection, and binds the result to the object variable (<code>?entry</code>).
         This will lead to the following object values:
         <code>"1. :flash" , "2. :superman" , and "3. :spiderman" </code>
       </p>
@@ -1017,11 +1029,11 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       <h4 id="snaf">Scoped Negation as Failure (SNAF)</h4>
 
       <p>
-        <a>N3 builtins</a> can also operate on a local <a>quoted graph</a> or even an entire <a>N3 document</a>.
+        <a>N3 builtins</a> can also operate on a local <a>graph term</a> or even an entire <a>N3 document</a>.
         The <code>log:collectAllIn</code>, <code>log:forAllIn</code>, and <code>log:notIncludes</code> builtins are
         logical operators that
         support a negation-as-failure scoped on the <a>builtin statement</a> object:
-        the object can be a quoted graph or a <a>blank node</a>, in which case the current document is the scope.
+        the object can be a graph term or a <a>blank node</a>, in which case the current document is the scope.
         For instance, the rule below uses <code>log:collectAllIn</code> to collect all of spiderman's defeated villains
         found in the current document:
       </p>
@@ -1085,13 +1097,13 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       <div class="note">
         In the two examples above, the <a>blank node</a> object <code>_:t</code> indicates the current <a>N3
           document</a>
-        as scope. Alternatively, a <a>quoted graph</a> can be used as the scope as well.
+        as scope. Alternatively, a <a>graph term</a> can be used as the scope as well.
         This is illustrated in the <code>log:notIncludes</code> example below.
       </div>
 
       <p>
         The <code>log:notIncludes</code> builtin checks whether the given scope <i>does not include</i> a given clause.
-        The example below uses a <a>quoted graph</a> as scope, instead of the current <a>N3 document</a>,
+        The example below uses a <a>graph term</a> as scope, instead of the current <a>N3 document</a>,
         as was the case for the prior two examples.
         The rule finds any of spiderman's enemies who have not been defeated, at least,
         as reported by the Daily Bugle:</p>
@@ -1111,7 +1123,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
   ?graph log:notIncludes { ?enemy :defeatedBy ?hero } .
 
 } => { ?enemy a :Undefeated } .</textarea>
-      <p>For each of spiderman's enemies (<code>?enemy</code>), the rule checks whether the <a>quoted graph</a>
+      <p>For each of spiderman's enemies (<code>?enemy</code>), the rule checks whether the <a>graph term</a>
         <code>?graph</code>,
         as reported by the <code>:daily_bugle</code>, does not include any statement where the enemy has been defeated.
         If so, we infer that this enemy is undefeated, in this case, <code>:sandman</code>.
@@ -1149,9 +1161,7 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
 
       <p>
         In the rule below, the <code>log:semantics</code> builtin retrieves an online source and subsequently parses it
-        a
-        <a>quoted
-          graph</a>:
+        as a <a>graph term</a>:
       </p>
       <textarea class="n3code runnable" id="semantics-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com/> .
@@ -1169,9 +1179,9 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
       </p>
 
       <p>
-        The <code>log:conclusion</code> builtin allows generating the closure of a given <a>quoted graph</a>,
+        The <code>log:conclusion</code> builtin allows generating the closure of a given <a>graph term</a>,
         i.e., extending the graph with all applicable rule inferences.
-        This includes <a>quoted graphs</a> retrieved and parsed from online sources. For example:</p>
+        This includes <a>graph terms</a> retrieved and parsed from online sources. For example:</p>
       <textarea class="n3code runnable" id="concl-example">@prefix log: <http://www.w3.org/2000/10/swap/log#> . 
 @prefix : <http://example.com/> .
 
@@ -1186,23 +1196,6 @@ _:a ex:town [ ex:name "Springfield" ] .</textarea>
         Instead of simply printing the inferences, one could, e.g., use the <code>log:forAllIn</code> builtin to
         check whether all persons listed in the online source are indeed inferred to be animals as well.
       </p>
-
-      <h4 id="builtin_list">Lists of built-ins</h4>
-      <p>Below, you can find all builtins currently supported by N3, grouped by their category:</p>
-      <ul>
-        <li><a href="../ns/crypto.html">Crypto</a> –
-          <a href="http://www.w3.org/2000/10/swap/crypto#">http://www.w3.org/2000/10/swap/crypto#</a>,</li>
-        <li><a href="../ns/list.html">List</a> –
-          <a href="http://www.w3.org/2000/10/swap/list#">http://www.w3.org/2000/10/swap/list#</a>,</li>
-        <li><a href="../ns/log.html">Log</a> –
-          <a href="http://www.w3.org/2000/10/swap/log#">http://www.w3.org/2000/10/swap/log#</a>,</li>
-        <li><a href="../ns/math.html">Math</a> –
-          <a href="http://www.w3.org/2000/10/swap/math#">http://www.w3.org/2000/10/swap/math#</a>,</li>
-        <li><a href="../ns/string.html">String</a> –
-          <a href="http://www.w3.org/2000/10/swap/string#">http://www.w3.org/2000/10/swap/string#</a>, and</li>
-        <li><a href="../ns/time.html">Time</a> –
-          <a href="http://www.w3.org/2000/10/swap/time#">http://www.w3.org/2000/10/swap/time#</a>.</li>
-      </ul>
     </section>
 
     <section id='paths'>
@@ -1403,14 +1396,15 @@ _:to1 :temperatureTrend :RISING ;
   rdf:language "ar-eg" ;
   rdf:direction "rtl"
 ] .</textarea>
-    <p>
-      For more, see the <a href="https://github.com/w3c/rdf-star-wg/blob/main/docs/text-direction.md">"text direction"</a>
-      discussions in the RDF-star working group.
-    </p>
+      <p>
+        For more, see the <a href="https://github.com/w3c/rdf-star-wg/blob/main/docs/text-direction.md">"text
+          direction"</a>
+        discussions in the RDF-star working group.
+      </p>
     </section>
     <section id="reification">
-      <h3>Quoted graphs</h3>
-      <p><a>Quoted graphs</a> allow attaching metadata to groups of triples,
+      <h3>Graph terms</h3>
+      <p><a>Graph terms</a> allow attaching metadata to groups of triples,
         such as the provenance, context, version, opinion, probability, etc.
         See the example below:</p>
       <textarea class="n3code">@prefix : <http://example.org/>  .
@@ -1419,10 +1413,10 @@ _:x :graph {
   <http://example.org/spiderman> <http://xmlns.com/foaf/0.1/name> "Peter Parker" .
 } .
 _:x :certainty 0.8 .</textarea>
-      <p>Importantly, as discussed for <a>quoted graphs</a> in general,
-        a quoted graph does not assert the contents of the RDF graph as being true.
+      <p>Importantly, as discussed for <a>graph terms</a> in general,
+        a graph term does not assert the contents of the RDF graph as being true.
         This allows expressing examples such as above,
-        where the statement within the quoted graph should not be asserted.</p>
+        where the statement within the graph term should not be asserted.</p>
     </section>
   </section>
 </body>
