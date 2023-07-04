@@ -1269,6 +1269,16 @@ _:d a :Person.</textarea>
         Which is likely not the intention of the author.
       </div>
 
+      <p>
+        Finally, the <code>&lt;-</code> syntax inverts a single property in an <a>N3 statement</a>, 
+        resulting in an <dfn>inverted property</dfn>.
+        For example, the following represents `:joe :hasMother :mary`:
+      </p>
+      <textarea class="n3code">@prefix : <http://example.org/> .
+      
+:mary <-:hasMother :joe.
+      </textarea>
+
     </section>
   </section>
   <section id='patterns' class=informative>
